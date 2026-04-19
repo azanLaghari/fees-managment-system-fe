@@ -1,0 +1,34 @@
+<div class="form-container">
+  <form *ngIf="student" (ngSubmit)="submit()">
+
+    <h2>Update Student</h2>
+
+    <label>Student Name:</label>
+    <input [(ngModel)]="student.studentName" name="studentName" required />
+
+    <label>Class:</label>
+    <input [(ngModel)]="student.className" name="className" required />
+
+    <label>Roll No:</label>
+    <input
+      type="number"
+      [(ngModel)]="student.rollNo"
+      name="rollNo"
+      required
+    />
+
+    <label>Parent Email:</label>
+    <input
+      type="email"
+      [(ngModel)]="student.parentEmail"
+      name="parentEmail"
+      required
+    />
+
+    <div class="button-group">
+      <button type="submit">Update</button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </div>
+
+  </form>
+</div>

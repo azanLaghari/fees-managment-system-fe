@@ -1,0 +1,96 @@
+<div class="form-container">
+  <form #studentForm="ngForm" (ngSubmit)="submit(studentForm)" novalidate>
+
+    <h2>Add New Student</h2>
+
+    <!-- Full Name -->
+    <label>Student Name</label>
+    <input
+      type="text"
+      [(ngModel)]="student.studentName"
+      name="studentName"
+      required
+      minlength="3"
+      placeholder="Enter Student Name"
+      #studentName="ngModel"
+    />
+    <div class="error" *ngIf="studentName.invalid && studentName.touched">
+      <small *ngIf="studentName.errors?.['required']">Student Name is required</small>
+      <small *ngIf="studentName.errors?.['minlength']">Minimum 3 characters required</small>
+    </div>
+
+    <!-- Class Name -->
+    <div class="form-group">
+      <label>Class Name</label>
+      <input
+        type="text"
+        [(ngModel)]="student.className"
+        name="className"
+        required
+        placeholder="Enter class name"
+        #className="ngModel"
+      />
+
+      <div class="error" *ngIf="className.invalid && className.touched">
+        <small>Class Name is required</small>
+      </div>
+    </div>
+
+    <!-- Roll No -->
+    <div class="form-group">
+      <label>Roll No</label>
+      <input
+        type="number"
+        [(ngModel)]="student.rollNo"
+        name="rollNo"
+        required
+        min="1"
+        placeholder="Enter roll number"
+        #rollNo="ngModel"
+      />
+
+      <div class="error" *ngIf="rollNo.invalid && rollNo.touched">
+        <small *ngIf="rollNo.errors?.['required']">
+          Roll No is required
+        </small>
+        <small *ngIf="rollNo.errors?.['min']">
+          Roll No must be greater than 0
+        </small>
+      </div>
+    </div>
+
+    <!-- Parent Email -->
+    <div class="form-group">
+      <label>Parent Email</label>
+      <input
+        type="email"
+        [(ngModel)]="student.parentEmail"
+        name="parentEmail"
+        required
+        email
+        placeholder="Enter parent email"
+        #parentEmail="ngModel"
+      />
+
+      <div class="error" *ngIf="parentEmail.invalid && parentEmail.touched">
+        <small *ngIf="parentEmail.errors?.['required']">
+          Email is required
+        </small>
+        <small *ngIf="parentEmail.errors?.['email']">
+          Enter valid email address
+        </small>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button type="submit" [disabled]="studentForm.invalid">
+        Save
+      </button>
+
+      <button type="button" (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+
+  </form>
+</div>

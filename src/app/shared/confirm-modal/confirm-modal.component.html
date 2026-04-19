@@ -1,0 +1,11 @@
+<div class="modal" *ngIf="show">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h3>{{ title }}</h3>
+    <p>{{ message }}</p>
+    <div class="actions">
+      <button class="button" (click)="closeModal()">Cancel </button>
+      <button class="button" (click)="onConfirm()">OK</button>
+    </div>
+  </div>
+</div>

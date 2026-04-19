@@ -1,0 +1,24 @@
+<div class="form-container">
+  <form *ngIf="fee" (ngSubmit)="updateFees()">
+
+    <h2>Update Fees</h2>
+
+<!--    <label>Roll No:</label>-->
+<!--    <input type="text" [(ngModel)]="fee.rollNo" name="rollNo" required />-->
+
+<!--    <label>Student Name:</label>-->
+<!--    <input type="text" [(ngModel)]="fee.studentName" name="studentName" required />-->
+
+<!--    <label>Class Name:</label>-->
+<!--    <input type="text" [(ngModel)]="fee.className" name="className" required />-->
+
+    <label>Pay Amount:</label>
+    <input type="number" [(ngModel)]="fee.feesPending" name="feesPending" required />
+
+    <div class="button-group">
+      <button type="submit">Pay</button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </div>
+
+  </form>
+</div>

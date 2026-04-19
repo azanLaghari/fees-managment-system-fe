@@ -1,0 +1,36 @@
+<div class="app-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h3 class="logo">FMS</h3>
+
+
+    <nav *ngIf="!authService.isLoggedIn(); else loggedInMenu">
+      <a routerLink="/about" routerLinkActive="active">About</a>
+      <a routerLink="/login" routerLinkActive="active">Login</a>
+    </nav>
+
+    <!-- Full menu when logged in -->
+    <ng-template #loggedInMenu>
+      <nav>
+        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        <a routerLink="/students" routerLinkActive="active">Students</a>
+        <a routerLink="/fees" routerLinkActive="active">Fees</a>
+        <a *ngIf="authService.isAdmin()" routerLink="/user" routerLinkActive="active">Accountant</a>
+        <a routerLink="/reports" routerLinkActive="active">Reports</a>
+        <a routerLink="/logout" routerLinkActive="active" (click)="logout()">Logout</a>
+      </nav>
+    </ng-template>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+    <app-confirm-modal
+      [show]="showError"
+      title="Logout"
+      message="Are you sure! you want to logout"
+      (cancel)="closeModal()"
+      (confirm)="confirmModal()">
+    </app-confirm-modal>
+  </main>
+</div>

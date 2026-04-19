@@ -1,0 +1,63 @@
+<div class="form-container">
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+
+    <h2>Login</h2>
+
+    <!-- Error message -->
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+
+    <!-- Email input -->
+    <label for="email">Email:</label>
+    <input
+      type="text"
+      id="email"
+      [(ngModel)]="email"
+      name="email"
+      placeholder="Enter email"
+      required
+      #emailInput="ngModel"
+    />
+    <div *ngIf="emailInput.invalid && emailInput.touched" class="validation-error">
+      Email is required
+    </div>
+
+    <!-- Password input -->
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Enter password"
+      required
+      #passwordInput="ngModel"
+    />
+    <div *ngIf="passwordInput.invalid && passwordInput.touched" class="validation-error">
+      Password is required
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-group">
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+<!--            <button type="button" (click)="resetForm(loginForm)">Reset</button>-->
+    </div>
+
+    <!-- Links -->
+    <div class="auth-link">
+      <a routerLink="/forgot-password">Forgot Password?</a>
+    </div>
+
+    <div class="auth-link">
+      <a routerLink="/user/register">Create an Account</a>
+    </div>
+
+    <app-confirm-modal
+      [show]="showError"
+      title="Login"
+      message="Invalid email or password!"
+      (cancel)="closeModal()"
+      (confirm)="closeModal()">
+    </app-confirm-modal>
+
+  </form>
+</div>

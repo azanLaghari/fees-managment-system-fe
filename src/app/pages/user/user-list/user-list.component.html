@@ -1,0 +1,25 @@
+<h2>List Of Accountants</h2>
+
+<button (click)="register()">Add Accountant</button>
+<br><br>
+<table>
+  <tr>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>Email</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+
+  <tr *ngFor="let u of user">
+    <td>{{ u.firstName }}</td>
+    <td>{{ u.lastName }}</td>
+    <td>{{ u.email }}</td>
+    <td>{{ u.status }}</td>
+    <td>
+      <button (click)="editAccountant(u.id!)">Edit</button>
+      <button (click)="deleteAccountant(u.id!)">Delete</button>
+    </td>
+  </tr>
+
+</table>
