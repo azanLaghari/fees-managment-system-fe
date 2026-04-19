@@ -1,5 +1,13 @@
 <h2>Students</h2>
 
+<app-confirm-modal
+  [show]="showError"
+  title="Logout"
+  message="Are you sure! you want to logout"
+  (cancel)="closeModal()"
+  (confirm)="confirmModal()">
+</app-confirm-modal>
+
 <button (click)="addStudent()">Add Student</button>
 <br> <br>
 <table>

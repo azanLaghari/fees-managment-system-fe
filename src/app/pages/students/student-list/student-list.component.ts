@@ -10,6 +10,8 @@ import { Student } from '../../../models/student.model';
 })
 export class StudentListComponent implements OnInit {
 
+  showError = false;
+  id: any;
   students: Student[] = [];
 
   constructor(
@@ -37,11 +39,21 @@ export class StudentListComponent implements OnInit {
   }
 
   deleteStudent(id: number): void {
-    if (confirm('Are you sure?')) {
-      this.studentService.deleteStudent(id).subscribe({
-        next: () => this.loadStudents(),
-        error: err => console.error('Delete failed', err)
-      });
-    }
+    this.showError = true;
+    this.id=id;
+     this.confirmModal();
   }
+
+  confirmModal() {
+   this.studentService.deleteStudent(this.id).subscribe({
+           next: () => this.loadStudents(),
+           error: err => console.error('Delete failed', err)
+         });
+    this.showError = false;
+  }
+
+ closeModal() {
+    this.showError = false;
+  }
+
 }
