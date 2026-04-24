@@ -1,19 +1,14 @@
 <h2>Fees Records</h2>
 
-<!--<button (click)="addFees()">Add Fees</button>-->
-<!--<br> <br>-->
-<table border="1">
-  <thead>
-  <tr>
+  <table>
+    <tr>
     <th>Roll No</th>
     <th>StudentName</th>
     <th>ClassName</th>
     <th>Fees Pending</th>
     <th>Actions</th>
   </tr>
-  </thead>
 
-  <tbody>
   <tr *ngFor="let fee of fees">
     <td>{{ fee.rollNo }}</td>
     <td>{{ fee.studentName }}</td>
@@ -21,9 +16,7 @@
     <td>{{ fee.feesPending}}</td>
     <td>
       <button (click)="editFees(fee.id)">pay</button>
-      <button (click)="deleteFees(fee.id)">Delete</button>
     </td>
   </tr>
-  </tbody>
 </table>
 

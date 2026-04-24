@@ -14,6 +14,7 @@
       [(ngModel)]="email"
       name="email"
       placeholder="Enter email"
+      required minlength="15" maxlength="16"
       required
       #emailInput="ngModel"
     />
@@ -29,6 +30,7 @@
       [(ngModel)]="password"
       name="password"
       placeholder="Enter password"
+      required minlength="6" maxlength="16"
       required
       #passwordInput="ngModel"
     />
@@ -53,10 +55,10 @@
 
     <app-confirm-modal
       [show]="showError"
-      title="Login"
-      message="Invalid email or password!"
+      title="Delete"
+      message="Delete student record!"
       (cancel)="closeModal()"
-      (confirm)="closeModal()">
+      (confirm)="confirmModal()">
     </app-confirm-modal>
 
   </form>

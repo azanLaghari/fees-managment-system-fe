@@ -9,7 +9,7 @@
       <input type="text" name="firstName"
              [(ngModel)]="user.firstName"
              placeholder="Enter your first name"
-             required minlength="2"
+             required minlength="2" maxlength="16"
              #firstName="ngModel" />
       <div class="error" *ngIf="firstName.invalid && firstName.touched">
         <small *ngIf="firstName.errors?.['required']">First Name is required</small>
@@ -23,7 +23,7 @@
       <input type="text" name="lastName"
              [(ngModel)]="user.lastName"
              placeholder="Enter your last name"
-             required minlength="2"
+             required minlength="2" maxlength="16"
              #lastName="ngModel" />
       <div class="error" *ngIf="lastName.invalid && lastName.touched">
         <small *ngIf="lastName.errors?.['required']">Last Name is required</small>
@@ -37,6 +37,7 @@
       <input type="email" name="email"
              [(ngModel)]="user.email"
              placeholder="Enter your email address"
+             required minlength="15" maxlength="16"
              required email
              #email="ngModel" />
       <div class="error" *ngIf="email.invalid && email.touched">
@@ -65,7 +66,7 @@
       <input type="password" name="confirmPassword"
              [(ngModel)]="user.confirmPassword"
              placeholder="Re-enter your password"
-             required minlength="6"
+             required minlength="6" maxlength="16"
              #confirmPassword="ngModel" />
       <div class="error" *ngIf="confirmPassword.invalid && confirmPassword.touched">
         <small *ngIf="confirmPassword.errors?.['required']">Confirm Password is required</small>

@@ -10,6 +10,8 @@ import {AccountantService} from "../../../services/accountant.service";
 })
 export class UserListComponent implements OnInit {
 
+  showError = false;
+  id: any;
   user: User[] = [];
 
   constructor(
@@ -32,13 +34,23 @@ export class UserListComponent implements OnInit {
 
   editAccountant(id: number) { this.router.navigate(['/user/edit', id]); }
 
-  deleteAccountant(id: number) {
+  deleteAccountant(id: number): void {
+        this.showError = true;
+        this.id = id;
+      }
 
-    if (confirm('Are you sure?')) {
-      this.accountantService.deleteAccountant(id).subscribe({
-        next: () => this.loadAccountants(),
-        error: err => console.error('Delete failed', err)
-      });
-    }
-  }
+      confirmModal(): void {
+        this.accountantService.deleteAccountant(this.id).subscribe({
+          next: () => {
+            this.loadAccountants();
+            this.showError = false;
+          },
+          error: err => console.error('Delete failed', err)
+        });
+      }
+
+     closeModal() {
+        this.showError = false;
+      }
+
 }

@@ -43,17 +43,7 @@ fees: Fee[] = [];
                                      if (id) {
                                        this.router.navigate(['/fees/edit', id]);
                                      }
-                                   }
 
-                                   deleteFees(id?: number): void {
-                                     if (!id) return;
-
-                                     if (confirm('Are you sure you want to delete this fee record?')) {
-                                       this.feesService.deleteFees(id).subscribe({
-                                         next: () => this.loadFees(),
-                                         error: (err) => console.error('Delete failed', err)
-                                       });
-                                     }
                                    }
 
 

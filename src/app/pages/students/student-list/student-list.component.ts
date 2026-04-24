@@ -40,16 +40,17 @@ export class StudentListComponent implements OnInit {
 
   deleteStudent(id: number): void {
     this.showError = true;
-    this.id=id;
-     this.confirmModal();
+    this.id = id;
   }
 
-  confirmModal() {
-   this.studentService.deleteStudent(this.id).subscribe({
-           next: () => this.loadStudents(),
-           error: err => console.error('Delete failed', err)
-         });
-    this.showError = false;
+  confirmModal(): void {
+    this.studentService.deleteStudent(this.id).subscribe({
+      next: () => {
+        this.loadStudents();
+        this.showError = false;
+      },
+      error: err => console.error('Delete failed', err)
+    });
   }
 
  closeModal() {

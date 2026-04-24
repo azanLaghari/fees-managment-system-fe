@@ -12,6 +12,7 @@
       required
       minlength="3"
       placeholder="Enter Student Name"
+      required minlength="10" maxlength="16"
       #studentName="ngModel"
     />
     <div class="error" *ngIf="studentName.invalid && studentName.touched">
@@ -28,6 +29,7 @@
         name="className"
         required
         placeholder="Enter class name"
+        required minlength="1" maxlength="4"
         #className="ngModel"
       />
 
@@ -44,8 +46,9 @@
         [(ngModel)]="student.rollNo"
         name="rollNo"
         required
-        min="1"
+
         placeholder="Enter roll number"
+        required minlength="0" maxlength="10"
         #rollNo="ngModel"
       />
 
@@ -56,6 +59,9 @@
         <small *ngIf="rollNo.errors?.['min']">
           Roll No must be greater than 0
         </small>
+        <small *ngIf="rollNo.errors?.['max']">
+          Roll No must be less than 10
+        </small>
       </div>
     </div>
 
@@ -65,10 +71,11 @@
       <input
         type="email"
         [(ngModel)]="student.parentEmail"
-        name="parentEmail"
+        name="parentEmail"s
         required
         email
         placeholder="Enter parent email"
+        required minlength="15" maxlength="16"
         #parentEmail="ngModel"
       />
 

@@ -79,6 +79,10 @@ export class RegisterUserComponent {
       }
 
       cancel(): void {
-        this.router.navigate(['/login']);
+        if (this.authService.isAdmin()) {
+          this.router.navigate(['/user']);
+        } else {
+          this.router.navigate(['/login']);
+        }
       }
     }

@@ -1,14 +1,21 @@
-<div class="dashboard-cards">
-  <div class="card">
-    <h3>Total Students</h3>
-    <p>120</p>
+<div class="dashboard-container">
+
+  <h2>Dashboard</h2>
+
+  <div class="card-grid">
+
+    <!-- Total Students -->
+    <div class="card students">
+      <h3>Total Students</h3>
+      <h1>{{ totalStudents }}</h1>
+    </div>
+
+    <!-- Pending Fees -->
+    <div class="card fees">
+      <h3>Total Pending Fees</h3>
+      <h1>{{ totalPendingFees }}</h1>
+    </div>
+
   </div>
-  <div class="card">
-    <h3>Fees Collected</h3>
-    <p>$45,000</p>
-  </div>
-  <div class="card">
-    <h3>Pending Fees</h3>
-    <p>$5,500</p>
-  </div>
+
 </div>

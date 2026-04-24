@@ -30,6 +30,11 @@ export class LoginComponent {
     });
   }
 
+confirmModal() {
+  this.showError = false;
+}
+
+
   closeModal() {
     this.showError = false;
   }
